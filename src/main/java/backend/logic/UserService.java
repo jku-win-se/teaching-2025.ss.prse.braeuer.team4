@@ -1,5 +1,5 @@
 package backend.logic;
-import database.DatabaseConnection;
+import database.DatabaseConnection_Supabase;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
@@ -11,7 +11,7 @@ public class UserService {
     // Methode zur Benutzerüberprüfung
     public static boolean authenticate(String email, String password) {
         String query = "SELECT * FROM users WHERE email = ?";
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = DatabaseConnection_Supabase.connectToSupabase();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, email);
@@ -39,7 +39,7 @@ public class UserService {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         String query = "INSERT INTO users (email, password_hash, role) VALUES (?, ?, ?)";
 
-        try (Connection conn = DatabaseConnection.connect();
+        try (Connection conn = DatabaseConnection_Supabase.connectToSupabase();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, email);
