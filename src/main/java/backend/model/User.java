@@ -1,6 +1,8 @@
 package backend.model;
 import java.util.List;
 
+import backend.logic.InvoiceService;
+
 
 public class User {
     private int id; //created automatically by database
@@ -16,6 +18,10 @@ public class User {
         this.password = password;
         this.role = role;
         this.state = state;
+    }
+    
+    public String getName() {
+    	return this.name;
     }
 
     public int getId() {
@@ -46,8 +52,14 @@ public class User {
         this.password = password;
     }
 
+
     public UserRole getRole() {
         return role;
+
+    public List<Invoice> viewCurrentReimbursement() {
+        // Logik zur Anzeige aktueller Erstattungen
+        return InvoiceService.getInvoices(this);
+
     }
 
     public void setRole(UserRole role) {
