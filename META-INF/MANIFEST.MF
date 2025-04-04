@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.4.0
+Build-Jdk-Spec: 21
+Class-Path: lib/commons-lang3-3.9.jar lib/jfreechart-1.5.3.jar lib/contr
+ olsfx-11.1.2.jar lib/log4j-api-2.23.1.jar lib/log4j-core-2.23.1.jar lib
+ /javafx-graphics-21.jar lib/javafx-graphics-21-win.jar lib/javafx-base-
+ 21.jar lib/javafx-base-21-win.jar lib/javafx-controls-21.jar lib/javafx
+ -controls-21-win.jar lib/javafx-fxml-21.jar lib/javafx-fxml-21-win.jar 
+ lib/jbcrypt-0.4.jar lib/tess4j-5.4.0.jar lib/jna-5.12.1.jar lib/jai-ima
+ geio-core-1.4.0.jar lib/pdfbox-2.0.26.jar lib/fontbox-2.0.26.jar lib/co
+ mmons-logging-1.2.jar lib/pdfbox-tools-2.0.26.jar lib/pdfbox-debugger-2
+ .0.26.jar lib/jbig2-imageio-3.0.4.jar lib/commons-io-2.11.0.jar lib/lep
+ t4j-1.16.2.jar lib/jboss-vfs-3.2.17.Final.jar lib/jboss-logging-3.1.4.G
+ A.jar lib/slf4j-api-1.7.36.jar lib/postgresql-42.6.0.jar lib/checker-qu
+ al-3.31.0.jar
+Main-Class: frontend.Main
+
