@@ -8,3 +8,6 @@
 .settings
 .classpath
 .metadata
+.jar
+dependency-reduced-pom.xml
+
