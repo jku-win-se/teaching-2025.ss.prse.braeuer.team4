@@ -6,6 +6,7 @@ public class Reimbursement {
     private Invoice invoice;
     private float approvedAmount;
     private Date processedDate;
+    private ReimbursementState state;
     
     
     public Reimbursement() {
@@ -19,19 +20,23 @@ public class Reimbursement {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public Invoice getInvoice() {
-        return invoice;
+        return this.invoice;
     }
 
     public double getApprovedAmount() {
-        return approvedAmount;
+        return this.approvedAmount;
     }
 
     public Date getProcessedDate() {
-        return processedDate;
+        return this.processedDate;
+    }
+    
+    public ReimbursementState getState() {
+    	return this.state;
     }
 
 }

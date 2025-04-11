@@ -66,3 +66,4 @@ INSERT INTO users (name, email, password, role, state) VALUES ('Ali Baba', 'ali.
 INSERT INTO users (name, email, password, role, state) VALUES ('Barbara Hummer', 'barbara.hummer@lunch.at', '$2a$12$9D.SowePxYOokt1/4t.40.PI/8rbVjHWK.EY31m/X7dx7VXZDz4ta', 'EMPLOYEE', 'INACTIVE');
 INSERT INTO users (name, email, password, role, state) VALUES ('Martin Lechner', 'martin.lechner@lunch.at', '$2a$12$Qzcsnm8KYIIwPrgUCa25L.l0/p9fUxWNc8s1C23NxI2h0daNDITt6', 'ADMIN', 'ACTIVE');
 INSERT INTO users (name, email, password, role, state) VALUES ('Sarah Maier', 'sarah.maier@lunch.at', '$2a$12$iYEddmZggCRh5bTiPAw5pevD5uN3HAWrKNqCMmyoQQMUcnxNo3vQ2', 'EMPLOYEE', 'ACTIVE');
+
