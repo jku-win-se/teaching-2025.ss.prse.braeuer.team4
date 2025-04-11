@@ -1,9 +1,10 @@
 package backend.model;
 
-public enum InvoiceState {
-    PENDING,       // Rechnung wurde hochgeladen, aber noch nicht verarbeitet
-    APPROVED,      // Rechnung wurde geprüft und genehmigt
-    REJECTED;     // Rechnung wurde abgelehnt
+public enum ReimbursementState {
+    PENDING,       // Rückerstattungsantrag wurde hochgeladen, aber noch nicht verarbeitet
+    APPROVED,      // Rückerstattungsantrag wurde geprüft und genehmigt
+    REJECTED,     // Rückerstattungsantrag wurde abgelehnt
+	FLAGGED;
 
 
     // Optional: Methode zur Beschreibung des Status
@@ -15,6 +16,8 @@ public enum InvoiceState {
                 return "Die Rechnung wurde genehmigt.";
             case REJECTED:
                 return "Die Rechnung wurde abgelehnt.";
+            case FLAGGED:
+            		return "Die Rechnung liegt zur Prüfung bei einem Admin";
             default:
                 return "Unbekannter Status.";
         }

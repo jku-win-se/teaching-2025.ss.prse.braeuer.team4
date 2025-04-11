@@ -6,16 +6,18 @@ public class Reimbursement {
     private Invoice invoice;
     private float approvedAmount;
     private Date processedDate;
+    private ReimbursementState status;
     
     
     public Reimbursement() {
     	
     }
     
-    public Reimbursement(Invoice invoice, float approvedAmount, Date processedDate) {
+    public Reimbursement(Invoice invoice, float approvedAmount, Date processedDate, ReimbursementState status) {
         this.invoice = invoice;
         this.approvedAmount = approvedAmount;
         this.processedDate = processedDate;
+        this.status = status;
     }
 
     public int getId() {

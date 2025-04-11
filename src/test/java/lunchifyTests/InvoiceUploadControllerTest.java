@@ -16,7 +16,7 @@ import backend.logic.InvoiceService;
 import backend.logic.SessionManager;
 import backend.model.Invoice;
 import backend.model.InvoiceCategory;
-import backend.model.InvoiceState;
+import backend.model.ReimbursementState;
 import backend.model.User;
 import frontend.Main;
 import javafx.scene.control.Button;
@@ -98,7 +98,7 @@ public class InvoiceUploadControllerTest extends ApplicationTest {
 		// Simuliere den Zustand, in dem bereits eine Rechnung für das Datum existiert
 		InvoiceService invoiceService = new InvoiceService(testUser);
 		invoiceService.addInvoice(
-				new Invoice(testDate, 100.0f, InvoiceCategory.SUPERMARKET, InvoiceState.PENDING, null, testUser));
+				new Invoice(testDate, 100.0f, InvoiceCategory.SUPERMARKET, ReimbursementState.PENDING, null, testUser));
 		
 		// Überprüfen, ob die Methode `invoiceDateAlreadyUsed` true zurückgibt
 		InvoiceService invoiceService2 = new InvoiceService(testUser);
