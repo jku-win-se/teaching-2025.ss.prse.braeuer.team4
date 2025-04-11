@@ -6,6 +6,7 @@ import static org.testfx.util.NodeQueryUtils.isVisible;
 
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
@@ -15,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+
 
 public class LoginPageControllerTests extends ApplicationTest {
     @Override
