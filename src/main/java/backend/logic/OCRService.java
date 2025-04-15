@@ -146,5 +146,10 @@ public class OCRService {
         return lastValue;
     }
 
+    //for tests
+    public ITesseract getTesseract() {
+        return tesseract;
+    }
+
 
 }
