@@ -30,6 +30,10 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           architecture: x64
+
+      #Tesseract insall - nesseccary for tests
+      - name: Install Tesseract OCR
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
           
       # Maven test, build and package compiled code in its distributable format, such as a JAR.
       - name: Maven package
