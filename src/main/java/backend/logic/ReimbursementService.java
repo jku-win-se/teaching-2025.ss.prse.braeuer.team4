@@ -51,32 +51,6 @@ public class ReimbursementService {
     	this.reimbursementAmount=amount;
     }
     
-    public boolean addReimbursement(Invoice invoice, float amount) {
-    	String sql = "INSERT INTO reimbursements (invoice_id, approved_amount, processed_date) VALUES (?, ?, ?)";
-    	
-    	try (Connection conn = DatabaseConnection.connect();
-    	    	//FileInputStream fis = new FileInputStream(invoice.getFile());
-    	        PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-    	    	//stmt.setBinaryStream(2, fis, (int) invoice.getFile().length());
-    		
-    			stmt.setInt(1, invoice.getId());
-    			stmt.setFloat(2, amount);
-    			stmt.setDate(3, Date.valueOf(invoice.getDate()));
-    	       
-
-    	        int affectedRows = stmt.executeUpdate(); // SQL ausführen
-    	        if (affectedRows > 0) {
-    	            ResultSet generatedKeys = stmt.getGeneratedKeys();
-    	            if (generatedKeys.next()) {
-    	                invoice.setId(generatedKeys.getInt(1)); // Neue ID setzen
-    	            }
-    	            return true; // Erfolg
-    	        }
-    	    } catch (SQLException e) {
-    	        e.printStackTrace();
-    	    }
-    	    return false; // Falls etwas schiefgeht
-    }
 	public boolean isValidFloat(String text) { //created by AI (ChatGPT)
 		return text.matches("^\\d+(\\.\\d+)?$");
 	}
@@ -151,9 +125,7 @@ public class ReimbursementService {
 		String sql = "INSERT INTO reimbursements (invoice_id, approved_amount, processed_date) VALUES (?, ?, ?)";
 
 		try (Connection conn = DatabaseConnection.connect();
-				// FileInputStream fis = new FileInputStream(invoice.getFile());
 				PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-			// stmt.setBinaryStream(2, fis, (int) invoice.getFile().length());
 
 			stmt.setInt(1, invoice.getId());
 			stmt.setFloat(2, amount);
