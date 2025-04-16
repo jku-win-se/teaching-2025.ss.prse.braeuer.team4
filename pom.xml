@@ -47,6 +47,7 @@
 				<configuration>
 					<excludes>
 						<exclude>**/uiTest/**</exclude>
+						<excludeTags>ui</excludeTags>
 					</excludes>
 				</configuration>
 			</plugin>

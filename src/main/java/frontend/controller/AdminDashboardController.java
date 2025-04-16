@@ -1,12 +1,17 @@
 package frontend.controller;
 import java.io.IOException;
 
+import backend.Exceptions.AuthenticationException;
 import backend.logic.SessionManager;
 import backend.model.User;
+import backend.model.UserRole;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -14,16 +19,26 @@ import javafx.scene.Node;
 
 public class AdminDashboardController {
 
-    //TODO Johanna: changes made by Marlene, review and accept or reject
     @FXML
     private Text userNameText;
+    @FXML
+    MenuButton userDropDown;
+    @FXML
+    private UserDropDownController userDropDownController;
 
     @FXML
     void initialize() {
-    	User user = SessionManager.getCurrentUser();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/views/UserDropDown.fxml"));
+        try {
+            userDropDown = loader.load();
+            userDropDownController = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        User user = SessionManager.getCurrentUser();
         if (user != null) {
-            String username = user.getName();
-            userNameText.setText("Hallo, " + username + "!");
+            userNameText.setText("Hallo, " + user.getName() + "!");
         } else {
             userNameText.setText("Nicht eingeloggt");
         }
@@ -80,4 +95,5 @@ public class AdminDashboardController {
             e.printStackTrace();
         }
     }
+
 }
