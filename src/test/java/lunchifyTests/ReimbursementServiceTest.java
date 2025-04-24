@@ -331,8 +331,6 @@ class ReimbursementServiceTest {
 
     @Test
     void testGetInfoText() {
-        service.modifyLimits(InvoiceCategory.SUPERMARKET, 2.5f);
-        service.modifyLimits(InvoiceCategory.RESTAURANT, 3.0f);
 
         String info = service.getInfoText();
 
