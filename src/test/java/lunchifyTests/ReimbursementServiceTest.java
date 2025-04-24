@@ -328,4 +328,81 @@ class ReimbursementServiceTest {
         // Assertions
         assertEquals(5.0f, total);
     }
+
+    @Test
+    void testGetInfoText() {
+        service.modifyLimits(InvoiceCategory.SUPERMARKET, 2.5f);
+        service.modifyLimits(InvoiceCategory.RESTAURANT, 3.0f);
+
+        String info = service.getInfoText();
+
+        assertTrue(info.contains("Supermarket: 2,50 €"));
+        assertTrue(info.contains("Restaurant: 3,00 €"));
+        assertFalse(info.contains("Undetectable"));
+        assertTrue(info.startsWith("Pro Arbeitstag"));
+        assertTrue(info.contains(System.lineSeparator()));
+    }
+
+    @Test
+    void testIsValidFloat() {
+        assertTrue(service.isValidFloat("1.0"));
+        assertTrue(service.isValidFloat("0"));
+        assertFalse(service.isValidFloat("-1"));
+        assertTrue(service.isValidFloat("42"));
+        assertFalse(service.isValidFloat("abc"));
+        assertFalse(service.isValidFloat("12.3.4"));
+        assertFalse(service.isValidFloat(""));
+    }
+
+    @Test
+    void testIsAmountValid() {
+        assertTrue(service.isAmountValid("2.5"));
+        assertFalse(service.isAmountValid("abc"));
+        assertFalse(service.isAmountValid(null));
+    }
+
+    @Test
+    void testSetAndGetReimbursementAmount() {
+        service.setReimbursementAmount(5.75f);
+        assertEquals(5.75f, service.getReimbursementAmount());
+    }
+
+    @Test
+    void testReimbursementServiceConstructor(){
+        ReimbursementService reimbursementServiceNoUser = new ReimbursementService();
+        assertNotNull(reimbursementServiceNoUser);
+        ReimbursementService reimbursementServiceUser = new ReimbursementService(testUser);
+        assertNotNull(reimbursementServiceUser);
+    }
+
+    //TODO: Test without Database
+    @Test
+    void testGetLimit() {
+        service.modifyLimits(InvoiceCategory.SUPERMARKET, 2.5f);
+        service.modifyLimits(InvoiceCategory.RESTAURANT, 3.0f);
+        service.modifyLimits(InvoiceCategory.UNDETECTABLE, 2.5f);
+
+        assertEquals(2.5f, service.getLimit(InvoiceCategory.SUPERMARKET));
+        assertEquals(3.0f, service.getLimit(InvoiceCategory.RESTAURANT));
+        assertEquals(2.5f, service.getLimit(InvoiceCategory.UNDETECTABLE));
+    }
+
+    @Test
+    void testModifyLimits() {
+        //TODO implement Logic without Database
+        /*
+        service.modifyLimits(InvoiceCategory.SUPERMARKET, 42.0f);
+        assertEquals(42.0f, service.getLimit(InvoiceCategory.SUPERMARKET));
+        service.modifyLimits(InvoiceCategory.RESTAURANT, 43.0f);
+        assertEquals(43.0f, service.getLimit(InvoiceCategory.RESTAURANT));
+
+        //assertThrows(IllegalArgumentException, service.getLimit(InvoiceCategory.UNDETECTABLE, -4), )
+
+         */
+    }
+    @Test
+    void testLoadLimitsFromDatabase() {
+        //TODO implement Logic without Database
+    }
 }
+
